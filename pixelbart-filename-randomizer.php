@@ -10,8 +10,8 @@
 
 defined('ABSPATH') || exit;
 
-add_filter('wp_unique_filename', function($filename, $ext, $dir, $unique_filename_callback, $alt_filenames, $number) {
+add_filter('wp_unique_filename', function($filename, $ext) {
     $uniqueName = bin2hex(random_bytes(16));
     $filename = $uniqueName . $ext;
     return $filename;
-}, 10, 5);
+}, 10, 2);
